@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequestMapping("movies")
 public class MovieController {
      
     @Autowired
@@ -33,7 +35,7 @@ public class MovieController {
     }
     @PutMapping("/add-movie-director-pair")
     public ResponseEntity<String> addMovieDirectorPair(@RequestParam("movie") String movie,@RequestParam("director") String director){
-        movieService.addDirectormoviepair(director, movie); 
+        movieService.addDirectormoviepair(movie, director); 
         return new ResponseEntity<String>("new pair added successfully", HttpStatus.CREATED);
     } 
 
@@ -56,12 +58,12 @@ public class MovieController {
 } 
     @GetMapping("/get-all-movies")
     public ResponseEntity<List<String>> findAllMovies(){
-        List<String> movies=movieService.FindAllmoivies();
+        List<String> movies=movieService.FindAlmoivies();
         return new ResponseEntity<>(movies, HttpStatus.ACCEPTED);
         
     }
     @DeleteMapping("/delete-director-by-name")
-    public ResponseEntity<String> deleteDirectorByName(@RequestParam("director") String director){
+    public ResponseEntity<String> deleteDirectorByName(@RequestParam String director){
         movieService.deleteDirector(director);
         return new ResponseEntity<String>("director deleted", HttpStatus.CREATED);
     }

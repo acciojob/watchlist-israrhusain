@@ -39,6 +39,5 @@ public class Movie {
         this.imdbRating = imdbRating;
     }
     
-    
 }
 
