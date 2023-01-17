@@ -7,17 +7,17 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class MovieRepository {
-    private HashMap<String ,Movie> MovieMap;
-    private HashMap<String ,Director> DirectorMap;
-    private HashMap<String ,List<String>> MovieDirectorPairMap;
+   private HashMap<String ,Movie> MovieMap;
+   private HashMap<String ,Director> DirectorMap;
+   private HashMap<String ,List<String>> MovieDirectorPairMap;
 
 
 
-    public MovieRepository() {
-        this.MovieMap = new HashMap<>();
-        this. DirectorMap = new HashMap<>();
-        this.MovieDirectorPairMap = new HashMap<>();
-     }
+   public MovieRepository() {
+   this.MovieMap = new HashMap<>();
+   this. DirectorMap = new HashMap<>();
+   this.MovieDirectorPairMap = new HashMap<>();
+   }
 
 
 
@@ -32,8 +32,9 @@ public class MovieRepository {
             DirectorMap.put(director.getName(),director);
         
     }
-
-
+   
+    
+   
     public void saveDirectorPairMap(String movie,String director ){
           if(MovieMap.containsKey(movie) && DirectorMap.containsKey(director)){
               List<String> currentmoviebyDirector=new ArrayList<>();
@@ -48,9 +49,9 @@ public class MovieRepository {
     }
 
 
-    public Movie FindMovie(String movie){
+      public Movie FindMovie(String movie){
            return MovieMap.get(movie);
-    }
+     }
 
 
      public Director FindDirector(String director){
